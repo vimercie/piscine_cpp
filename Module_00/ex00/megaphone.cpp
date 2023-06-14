@@ -6,32 +6,21 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 22:55:33 by vimercie          #+#    #+#             */
-/*   Updated: 2023/04/28 00:07:09 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/14 15:26:55 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	print_all_caps(char *str)
+int	main(int ac, char **av)
 {
-	int	i = 0;
-	while (str[i])
-	{
-		std::cout << (char)toupper(str[i]);
-		i++;
-	}
-	return (0);
-}
+	std::string	str;
 
-int	main(int argc, char **argv)
-{
-	if (argc == 1)
+	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
-	{
-		for (int i = 1; i < argc; i++)
-			print_all_caps(argv[i]);
-	}
-	std::cout << std::endl;
-	return (0);
+	for (int i = 1; i < ac; i++)
+		str += av[i];
+	for (std::string::iterator i = str.begin(); i != str.end(); i++)
+		*i = std::toupper(*i);
+	std::cout << str << std::endl;
 }
