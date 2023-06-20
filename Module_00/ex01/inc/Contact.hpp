@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:34:10 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/14 18:40:03 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/21 00:49:27 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 class	Contact
 {
 	public:
-		int			index;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;

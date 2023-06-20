@@ -1,8 +1,13 @@
 NAME=		PhoneBook
 
+INCDIR=		inc/
+
 OBJDIR=		obj
 
 SRC=		PhoneBook.cpp
+
+INC=		${INCDIR}/PhoneBook.hpp		\
+			${INCDIR}/Contact.hpp
 
 OBJ=		${addprefix ${OBJDIR}/,		\
 			${SRC:.cpp=.o}}

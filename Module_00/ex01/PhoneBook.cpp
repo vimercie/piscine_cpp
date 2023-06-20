@@ -6,75 +6,95 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/14 18:44:33 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/21 00:59:45 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "inc/PhoneBook.hpp"
 
-bool	PhoneBook::print_contact_list(Contact contact[8])
+static bool	isalnum_str(std::string str)
 {
-	if (contact[0].first_name.empty())
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		std::cout << "NO SHIT" << std::endl;
-		return (0);
+		if (!isalnum(str[i]))
+			return (false);
+		i++;
 	}
-	std::cout << "*----------*----------*----------*----------*" << std::endl;
-	for (int i = 0; i <= 7; i++)
-	{
-		if (contact[i].first_name.empty())
-			break ;
-		std::cout << i << std::endl;
-	}
-	std::cout << "*----------*----------*----------*----------*" << std::endl;
+	return (true);
 }
 
-void	PhoneBook::search_contact(Contact contact[8])
+void	PhoneBook::print_in_tab(std::string str)
 {
-	if (contact[0].first_name.empty())
+	if (str.size() > 10)
 	{
-		std::cout << "NO SHIT" << std::endl;
+		str.resize(10);
+		str[str.size() - 1] = '.';
+	}
+	else
+		str.resize(10, ' ');
+	std::cout << "|" << str;
+}
+
+int	PhoneBook::print_contact_list(PhoneBook pb)
+{
+	int	i;
+
+	for (i = 0; i <= 7; i++)
+	{
+		if (pb.contacts[i].first_name.empty())
+			break ;
+		std::cout << '|' << i + 1 << "         ";
+		pb.print_in_tab(pb.contacts[i].first_name);
+		pb.print_in_tab(pb.contacts[i].last_name);
+		pb.print_in_tab(pb.contacts[i].nickname);
+		std::cout << '|' << std::endl;
+	}
+	return (i);
+}
+
+void	PhoneBook::search_contact(PhoneBook pb)
+{
+	std::string	buffer;
+	int			list_size;
+	int			n;
+
+	list_size = pb.print_contact_list(pb);
+	if (list_size == 0)
+	{
+		std::cerr << "No contact yet" << std::endl;
 		return ;
 	}
-	std::cout << "*----------*----------*----------*----------*" << std::endl;
-	for (int i = 0; i <= 7; i++)
+	std::cout << "\nEnter a contact index" << std::endl;
+	std::getline(std::cin, buffer);
+	n = atoi(buffer.c_str());
+	if (n < 1 || n > list_size)
 	{
-		if (contact[i].first_name.empty())
-			break ;
-		std::cout << i << std::endl;
+		std::cerr << "\nNot a valid index\n" << std::endl;
+		return ;
 	}
+	std::cout << "\nFirst name =\t\t" << pb.contacts[n - 1].first_name << std::endl;
+	std::cout << "Last name =\t\t" << pb.contacts[n - 1].last_name << std::endl;
+	std::cout << "Nickname =\t\t" << pb.contacts[n - 1].nickname << std::endl;
+	std::cout << "Phone number =\t\t" << pb.contacts[n - 1].phone_number << std::endl;
+	std::cout << "darkest secret =\t" << pb.contacts[n - 1].darkest_secret << std::endl << std::endl;
 }
 
-void	PhoneBook::add_contact(Contact *contact)
+void	PhoneBook::add_contact(std::string *dest, std::string type)
 {
-	while (contact->first_name.empty())
+	if (!(*dest).empty())
+		(*dest).clear();
+	while ((*dest).empty())
 	{
-		std::cout << "Enter first name" << std::endl << "> ";
-		std::getline(std::cin, contact->first_name);
-		std::cout << std::endl;
-	}
-	while (contact->last_name.empty())
-	{
-		std::cout << "Enter last name" << std::endl << "> ";
-		std::getline(std::cin, contact->last_name);
-		std::cout << std::endl;
-	}
-	while (contact->nickname.empty())
-	{
-		std::cout << "Enter nickname" << std::endl << "> ";
-		std::getline(std::cin, contact->nickname);
-		std::cout << std::endl;
-	}
-	while (contact->phone_number.empty())
-	{
-		std::cout << "Enter phone number" << std::endl << "> ";
-		std::getline(std::cin, contact->phone_number);
-		std::cout << std::endl;
-	}
-	while (contact->darkest_secret.empty())
-	{
-		std::cout << "Enter darkest secret" << std::endl << "> ";
-		std::getline(std::cin, contact->darkest_secret);
+		std::cout << "Enter " << type << std::endl << "> ";
+		std::getline(std::cin, *dest);
+		if (!isalnum_str(*dest))
+		{
+			(*dest).clear();
+			std::cerr << "\nOnly letters or numbers." << std::endl;
+		}
 		std::cout << std::endl;
 	}
 }
@@ -92,12 +112,18 @@ int	main(void)
 		std::getline(std::cin, buffer);
 		if (buffer == "ADD")
 		{
-			pb.contacts[i].index = i + 1;
-			pb.add_contact(&pb.contacts[i]);
-			i = (i < 7) ? i + 1 : i = 0;
+			pb.add_contact(&pb.contacts[i].first_name, "first name");
+			pb.add_contact(&pb.contacts[i].last_name, "last name");
+			pb.add_contact(&pb.contacts[i].nickname, "nickname");
+			pb.add_contact(&pb.contacts[i].phone_number, "phone number");
+			pb.add_contact(&pb.contacts[i].darkest_secret, "darkest secret");
+			if (i < 7)
+				i++;
+			else
+				i = 0;
 		}
 		if (buffer == "SEARCH")
-			pb.search_contact(pb.contacts);
+			pb.search_contact(pb);
 		if (buffer == "EXIT")
 			return (1);
 	}
