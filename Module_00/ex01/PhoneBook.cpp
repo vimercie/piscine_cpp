@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/21 00:59:45 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/21 01:33:23 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	PhoneBook::search_contact(PhoneBook pb)
 	n = atoi(buffer.c_str());
 	if (n < 1 || n > list_size)
 	{
-		std::cerr << "\nNot a valid index\n" << std::endl;
+		if (!std::cin.eof())
+			std::cerr << "\nNot a valid index\n" << std::endl;
 		return ;
 	}
 	std::cout << "\nFirst name =\t\t" << pb.contacts[n - 1].first_name << std::endl;
@@ -84,12 +85,16 @@ void	PhoneBook::search_contact(PhoneBook pb)
 
 void	PhoneBook::add_contact(std::string *dest, std::string type)
 {
+	if (std::cin.eof())
+		return ;
 	if (!(*dest).empty())
 		(*dest).clear();
 	while ((*dest).empty())
 	{
 		std::cout << "Enter " << type << std::endl << "> ";
 		std::getline(std::cin, *dest);
+		if (std::cin.eof())
+			return ;
 		if (!isalnum_str(*dest))
 		{
 			(*dest).clear();
@@ -124,7 +129,7 @@ int	main(void)
 		}
 		if (buffer == "SEARCH")
 			pb.search_contact(pb);
-		if (buffer == "EXIT")
+		if (buffer == "EXIT" || buffer.empty() || std::cin.eof())
 			return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:12 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/21 00:48:29 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/21 01:26:18 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <cstdio>
 # include "Contact.hpp"
 
 class	PhoneBook
