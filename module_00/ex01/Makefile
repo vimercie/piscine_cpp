@@ -1,10 +1,12 @@
 NAME=		PhoneBook
 
+VPATH=		src/
+
+SRC=		PhoneBook.cpp
+
 INCDIR=		inc/
 
 OBJDIR=		obj
-
-SRC=		PhoneBook.cpp
 
 INC=		${INCDIR}/PhoneBook.hpp		\
 			${INCDIR}/Contact.hpp

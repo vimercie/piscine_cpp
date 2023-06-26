@@ -6,11 +6,11 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/26 11:38:48 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/26 11:50:17 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/PhoneBook.hpp"
+#include "../inc/PhoneBook.hpp"
 
 static bool	isalnum_str(std::string str)
 {
