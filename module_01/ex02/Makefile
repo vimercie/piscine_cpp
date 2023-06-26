@@ -1,4 +1,4 @@
-NAME=		BraiiiiiiinnnzzzZ
+NAME=		ex02
 
 SRC=		main.cpp		\
 

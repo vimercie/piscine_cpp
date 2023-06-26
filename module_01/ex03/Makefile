@@ -1,11 +1,10 @@
-NAME=		ex00
+NAME=		ex03
 
 VPATH=		src/
 
 SRC=		main.cpp		\
 			Zombie.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
+			zombieHorde.cpp
 
 INCDIR=		inc/
 

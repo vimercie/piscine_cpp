@@ -1,4 +1,4 @@
-NAME=		BraiiiiiiinnnzzzZ
+NAME=		ex01
 
 VPATH=		src/
 
