@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/21 01:33:23 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/26 11:38:48 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,20 @@ static bool	isalnum_str(std::string str)
 
 void	PhoneBook::print_in_tab(std::string str)
 {
-	if (str.size() > 10)
+	std::string	ws;
+
+	if (str.size() < 10)
+	{
+		ws = "          ";
+		ws.resize(ws.size() - str.size());
+		ws.append(str);
+		str = ws;
+	}
+	else if (str.size() > 10)
 	{
 		str.resize(10);
 		str[str.size() - 1] = '.';
 	}
-	else
-		str.resize(10, ' ');
 	std::cout << "|" << str;
 }
 
@@ -46,7 +53,7 @@ int	PhoneBook::print_contact_list(PhoneBook pb)
 	{
 		if (pb.contacts[i].first_name.empty())
 			break ;
-		std::cout << '|' << i + 1 << "         ";
+		std::cout << '|' << "         " << i + 1;
 		pb.print_in_tab(pb.contacts[i].first_name);
 		pb.print_in_tab(pb.contacts[i].last_name);
 		pb.print_in_tab(pb.contacts[i].nickname);
