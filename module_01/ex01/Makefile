@@ -1,15 +1,16 @@
-NAME=		PhoneBook
+NAME=		ex01
 
 VPATH=		src/
 
-SRC=		PhoneBook.cpp
+SRC=		main.cpp		\
+			Zombie.cpp		\
+			zombieHorde.cpp
 
 INCDIR=		inc/
 
 OBJDIR=		obj
 
-INC=		${INCDIR}/PhoneBook.hpp		\
-			${INCDIR}/Contact.hpp
+INC=		${INCDIR}/*
 
 OBJ=		${addprefix ${OBJDIR}/,		\
 			${SRC:.cpp=.o}}

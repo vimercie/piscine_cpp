@@ -1,15 +1,8 @@
-NAME=		PhoneBook
+NAME=		ex02
 
-VPATH=		src/
-
-SRC=		PhoneBook.cpp
-
-INCDIR=		inc/
+SRC=		main.cpp		\
 
 OBJDIR=		obj
-
-INC=		${INCDIR}/PhoneBook.hpp		\
-			${INCDIR}/Contact.hpp
 
 OBJ=		${addprefix ${OBJDIR}/,		\
 			${SRC:.cpp=.o}}
@@ -26,7 +19,7 @@ ${NAME}:	${OBJ}
 ${OBJDIR}:
 			mkdir -p obj
 
-${OBJDIR}/%.o:	%.cpp ${INC} Makefile
+${OBJDIR}/%.o:	%.cpp Makefile
 			${COMP} ${FLAGS} -c $< -o $@
 
 clean:
