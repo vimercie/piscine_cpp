@@ -2,7 +2,8 @@ NAME=		PhoneBook
 
 VPATH=		src/
 
-SRC=		PhoneBook.cpp
+SRC=		PhoneBook.cpp		\
+			Contact.cpp
 
 INCDIR=		inc/
 

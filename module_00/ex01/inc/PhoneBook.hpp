@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:12 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/21 01:26:18 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/28 00:57:53 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,8 @@ class	PhoneBook
 {
 	public:
 		Contact contacts[8];
-		void	add_contact(std::string *dest, std::string type);
-		void	search_contact(PhoneBook pb);
-	private:
-		int		print_contact_list(PhoneBook pb);
-		void	print_in_tab(std::string str);
+		void	search_contact(void);
+		int		print_contact_list(void);
 };
 
 #endif
