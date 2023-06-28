@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/28 00:53:17 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/28 18:43:26 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ void	print_in_tab(std::string str)
 
 int	PhoneBook::print_contact_list()
 {
-	int	i;
+	int	index;
 
-	for (i = 0; i <= 7; i++)
+	for (index = 0; index <= 7; index++)
 	{
-		if (!this->contacts[i].list(i + 1))
+		if (!this->contacts[index].list(index + 1))
 			break ;
 	}
-	return (i);
+	return (index);
 }
 
 void	PhoneBook::search_contact()
 {
 	std::string	buffer;
 	int			list_size;
-	int			n;
+	int			index;
 
 	list_size = this->print_contact_list();
 	if (list_size == 0)
@@ -57,38 +57,44 @@ void	PhoneBook::search_contact()
 	}
 	std::cout << "\nEnter a contact index" << std::endl;
 	std::getline(std::cin, buffer);
-	n = atoi(buffer.c_str());
-	if (n < 1 || n > list_size)
+	index = atoi(buffer.c_str());
+	if (index < 1 || index > list_size)
 	{
 		if (!std::cin.eof())
 			std::cerr << "\nNot a valid index\n" << std::endl;
 		return ;
 	}
-	this->contacts[n - 1].display();
+	this->contacts[index - 1].display();
 }
+
+void	PhoneBook::add_contact(int index)
+{
+	this->contacts[index - 1].add("first name");
+	this->contacts[index - 1].add("last name");
+	this->contacts[index - 1].add("nickname");
+	this->contacts[index - 1].add("phone number");
+	this->contacts[index - 1].add("darkest secret");
+}
+
 
 int	main(void)
 {
 	PhoneBook	pb;
 	std::string	buffer;
-	int			i;
+	int			index;
 
-	i = 0;
+	index = 1;
 	while (1)
 	{
 		std::cout << "PhoneBook> ";
 		std::getline(std::cin, buffer);
 		if (buffer == "ADD")
 		{
-			pb.contacts[i].add("first name");
-			pb.contacts[i].add("last name");
-			pb.contacts[i].add("nickname");
-			pb.contacts[i].add("phone number");
-			pb.contacts[i].add("darkest secret");
-			if (i < 7)
-				i++;
+			pb.add_contact(index);
+			if (index < 8)
+				index++;
 			else
-				i = 0;
+				index = 1;
 		}
 		if (buffer == "SEARCH")
 			pb.search_contact();

@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:12 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/28 00:57:53 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/28 18:37:43 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
 class	PhoneBook
 {
 	public:
-		Contact contacts[8];
+		void	add_contact(int index);
 		void	search_contact(void);
+	private:
 		int		print_contact_list(void);
+
+		Contact contacts[8];
 };
 
 #endif

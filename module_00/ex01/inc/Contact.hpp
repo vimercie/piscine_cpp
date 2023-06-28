@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:34:10 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/28 00:57:57 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/28 18:37:38 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class	Contact
 		void		add(std::string type);
 		void		display(void);
 		int			list(int index);
-		std::string	*get_data_type(std::string type);
 	private:
+		std::string	*get_data_type(std::string type);
+
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
