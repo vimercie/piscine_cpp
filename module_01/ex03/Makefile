@@ -3,8 +3,9 @@ NAME=		ex03
 VPATH=		src/
 
 SRC=		main.cpp		\
-			Zombie.cpp		\
-			zombieHorde.cpp
+			Weapon.cpp		\
+			HumanA.cpp		\
+			HumanB.cpp
 
 INCDIR=		inc/
 

@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 15:42:59 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/26 16:02:32 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/06/30 18:25:53 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 class	Weapon
 {
 	public:
-		Weapon(std::string type);
+		Weapon();
 		~Weapon();
+		Weapon(std::string type);
 
 		const std::string	&getType(void);
 		void				setType(std::string str);
