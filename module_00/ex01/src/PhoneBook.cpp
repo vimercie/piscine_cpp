@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/28 18:43:26 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	PhoneBook::search_contact()
 	list_size = this->print_contact_list();
 	if (list_size == 0)
 	{
-		std::cerr << "No contact yet" << std::endl;
+		std::cout << "No contact yet" << std::endl;
 		return ;
 	}
 	std::cout << "\nEnter a contact index" << std::endl;
@@ -61,7 +61,7 @@ void	PhoneBook::search_contact()
 	if (index < 1 || index > list_size)
 	{
 		if (!std::cin.eof())
-			std::cerr << "\nNot a valid index\n" << std::endl;
+			std::cout << "\nNot a valid index\n" << std::endl;
 		return ;
 	}
 	this->contacts[index - 1].display();

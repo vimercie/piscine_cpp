@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 19:51:10 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/01 02:22:09 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	fileCpy(std::string file, std::string content)
 
 	if (!outfile.is_open())
 	{
-		std::cerr << "Error occured while creating outfile" << std::endl;
+		std::cout << "Error occured while creating outfile" << std::endl;
 		return ;
 	}
 	outfile << content;
@@ -81,7 +81,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Usage: ./ex04 [filename] [s1] [s2]" << std::endl;
+		std::cout << "Usage: ./ex04 [filename] [s1] [s2]" << std::endl;
 		return (0);
 	}
 
@@ -92,7 +92,7 @@ int	main(int ac, char **av)
 	if (infile.empty() || s1.empty()
 		|| !isalnum_str(s1) || !isalnum_str(s2))
 	{
-		std::cerr << "Invalid arguments" << std::endl;
+		std::cout << "Invalid arguments" << std::endl;
 		return (0);
 	}
 	fileCpy(av[1], replaceStr(infile, s1, s2));

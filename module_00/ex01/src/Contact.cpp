@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 20:20:49 by vimercie          #+#    #+#             */
-/*   Updated: 2023/06/28 01:01:38 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	Contact::add(std::string type)
 		if (!isalnum_str(*dest))
 		{
 			(*dest).clear();
-			std::cerr << "\nOnly letters or numbers." << std::endl;
+			std::cout << "\nOnly letters or numbers." << std::endl;
 		}
 		std::cout << std::endl;
 	}

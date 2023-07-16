@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 22:11:03 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/16 21:55:51 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    Harl::complain(std::string level)
 	if (i != this->complaintMap.end())
 		(this->*(i->second))();
 	else
-		std::cerr << "I be poppin' nothing :(" << std::endl;
+		std::cout << "I be poppin' nothing :(" << std::endl;
 }
 
 void    Harl::debug()
