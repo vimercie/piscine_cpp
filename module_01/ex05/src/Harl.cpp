@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 22:11:03 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/16 22:12:43 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Harl::Harl()
 void    Harl::complain(std::string level)
 {
 	std::map<std::string, void (Harl::*)()>::iterator i = complaintMap.find(level);
+
 	if (i != this->complaintMap.end())
 		(this->*(i->second))();
 	else
