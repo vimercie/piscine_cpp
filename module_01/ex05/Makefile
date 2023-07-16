@@ -1,8 +1,15 @@
-NAME=		ex04
+NAME=		ex05
 
-SRC=		main.cpp
+VPATH=		src/
+
+SRC=		main.cpp		\
+			Harl.cpp
+
+INCDIR=		inc/
 
 OBJDIR=		obj
+
+INC=		${INCDIR}/*
 
 OBJ=		${addprefix ${OBJDIR}/,		\
 			${SRC:.cpp=.o}}
@@ -19,7 +26,7 @@ ${NAME}:	${OBJ}
 ${OBJDIR}:
 			mkdir -p obj
 
-${OBJDIR}/%.o:	%.cpp Makefile
+${OBJDIR}/%.o:	%.cpp ${INC} Makefile
 			${COMP} ${FLAGS} -c $< -o $@
 
 clean:
