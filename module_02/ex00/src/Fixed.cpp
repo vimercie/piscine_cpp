@@ -6,13 +6,42 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/17 22:19:45 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/19 18:05:17 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
 
+Fixed::Fixed() : fixedPointValue(0)
+{
+	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed& src) : fixedPointValue(src.fixedPointValue)
+{
+	std::cout << "Copy constructor called" << std::endl;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
 Fixed&	Fixed::operator=(const Fixed& src)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &src)
+		setRawBits(src.getRawBits());
+	return (*this);
+}
+
+int	Fixed::getRawBits() const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->fixedPointValue);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->fixedPointValue = raw;
 }

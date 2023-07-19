@@ -1,5 +1,6 @@
 {
-	"files.associations": {
+	"files.associations":
+	{
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",
@@ -49,5 +50,6 @@
 		"typeinfo": "cpp",
 		"numbers": "cpp",
 		"map": "cpp"
-	}
+	},
+	"C_Cpp.default.cppStandard": "c++98"
 }
