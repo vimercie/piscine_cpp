@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:04:58 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/19 18:25:40 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/19 18:14:51 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed& src);
+		Fixed(const int n);
 		Fixed&	operator=(const Fixed& src);
 		~Fixed();
 

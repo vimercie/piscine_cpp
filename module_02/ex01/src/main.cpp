@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 23:04:58 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/19 18:25:40 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2023/07/16 23:06:03 by vimercie          #+#    #+#             */
+/*   Updated: 2023/07/19 17:57:21 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "../inc/Fixed.hpp"
 
-# include <iostream>
-
-class	Fixed
+int main( void )
 {
-	private:
-		int					fixedPointValue;
-		static const int	bitsInFraction;
-	public:
-		Fixed();
-		Fixed(const Fixed& src);
-		Fixed&	operator=(const Fixed& src);
-		~Fixed();
+	Fixed	a;
+	Fixed	b( a );
+	Fixed	c;
 
-		int		getRawBits() const;
-		void	setRawBits(int const raw);
-};
+	c = b;
 
-#endif
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return 0;
+}
