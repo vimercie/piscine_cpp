@@ -6,11 +6,13 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/19 18:05:17 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/19 18:21:13 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
+
+const int Fixed::bitsInFraction = 8;
 
 Fixed::Fixed() : fixedPointValue(0)
 {
