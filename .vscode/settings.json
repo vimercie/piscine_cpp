@@ -49,7 +49,13 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"numbers": "cpp",
-		"map": "cpp"
+		"map": "cpp",
+		"chrono": "cpp",
+		"ctime": "cpp",
+		"ratio": "cpp",
+		"stop_token": "cpp",
+		"thread": "cpp",
+		"cinttypes": "cpp"
 	},
 	"C_Cpp.default.cppStandard": "c++98"
 }
