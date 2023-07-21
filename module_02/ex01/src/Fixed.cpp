@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/21 15:48:44 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/21 17:46:07 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	Fixed::getRawBits() const {return (this->fixedPointValue);}
 
 void	Fixed::setRawBits(int const raw) {this->fixedPointValue = raw;}
 
-int	Fixed::toInt() const {return (this->getRawBits() >> this->bitsInFraction);}
+int	Fixed::toInt() const
+{return (this->getRawBits() >> this->bitsInFraction);}
 
-float	Fixed::toFloat() const {return ((float)this->getRawBits() / (1 << this->bitsInFraction));}
+float	Fixed::toFloat() const
+{return ((float)this->getRawBits() / (1 << this->bitsInFraction));}
