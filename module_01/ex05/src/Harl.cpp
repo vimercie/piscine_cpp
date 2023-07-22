@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 22:11:03 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/16 22:12:43 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/22 14:54:54 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,46 @@
 
 Harl::Harl()
 {
-	this->complaintMap.insert(std::make_pair("DEBUG", &Harl::debug));
-	this->complaintMap.insert(std::make_pair("INFO", &Harl::info));
-	this->complaintMap.insert(std::make_pair("WARNING", &Harl::warning));
-	this->complaintMap.insert(std::make_pair("ERROR", &Harl::error));
+	ptr_tab[0] = &Harl::debug;
+	ptr_tab[1] = &Harl::info;
+	ptr_tab[2] = &Harl::warning;
+	ptr_tab[3] = &Harl::error;
+
+	str_tab[0] = "DEBUG";
+	str_tab[1] = "INFO";
+	str_tab[2] = "WARNING";
+	str_tab[3] = "ERROR";
 }
 
 void    Harl::complain(std::string level)
 {
-	std::map<std::string, void (Harl::*)()>::iterator i = complaintMap.find(level);
-
-	if (i != this->complaintMap.end())
-		(this->*(i->second))();
-	else
-		std::cout << "I be poppin' nothing :(" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (level.compare(this->str_tab[i]) == 0)
+		{
+			(this->*ptr_tab[i])();
+			return ;
+		}
+	}
+	std::cout << "Nothin' to pop (wrong level argument)" << std::endl;
 }
 
 void    Harl::debug()
 {
-	std::cout << "I be poppin' bottles of Champagne" << std::endl;
+	std::cout << "I be poppin' bottles of Champagne (debug)" << std::endl;
 }
 
 void    Harl::info()
 {
-	std::cout << "I BE POPPIN' BOTTLES" << std::endl;
+	std::cout << "I BE POPPIN' BOTTLES (info)" << std::endl;
 }
 
 void    Harl::warning()
 {
-	std::cout << "I shall be poppin' bottles" << std::endl;
+	std::cout << "I shall be poppin' bottles (warning)" << std::endl;
 }
 
 void    Harl::error()
 {
-	std::cout << "I ain't poppin' bottles" << std::endl;
+	std::cout << "I ain't poppin' bottles (error)" << std::endl;
 }
