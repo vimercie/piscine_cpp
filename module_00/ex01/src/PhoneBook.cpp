@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 16:27:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/22 16:24:00 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(void)
 		}
 		if (buffer == "SEARCH")
 			pb.search_contact();
-		if (buffer == "EXIT" || buffer.empty() || std::cin.eof())
+		if (buffer == "EXIT" || std::cin.eof())
 			return (1);
 	}
 	return (0);

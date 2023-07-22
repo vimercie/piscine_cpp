@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 20:20:49 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/16 22:01:20 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/22 16:24:34 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	Contact::list(int index)
 {
 	if (this->first_name.empty())
 		return (0);
+	if (index == 1)
+		std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	std::cout << '|' << "         " << index;
 	print_in_tab(this->first_name);
 	print_in_tab(this->last_name);
