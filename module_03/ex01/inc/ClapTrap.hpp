@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:44:50 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/22 16:58:30 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/24 15:23:04 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string	name;
 		int			hit_points;
 		int			energy_points;
@@ -31,9 +31,9 @@ class	ClapTrap
 
 		ClapTrap&	operator=(const ClapTrap& src);
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 };
 
 #endif
