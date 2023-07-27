@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:04:58 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/21 18:06:56 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/27 13:49:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class	Fixed
 		~Fixed();
 
 		Fixed&	operator=(const Fixed& src);
+
+		// Opérateurs de comparaison;
 
 		Fixed&	operator++();
 		Fixed&	operator--();

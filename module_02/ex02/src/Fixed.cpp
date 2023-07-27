@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/21 18:12:53 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/27 13:48:14 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ Fixed&	Fixed::operator=(const Fixed& src)
 		setRawBits(src.getRawBits());
 	return (*this);
 }
+
+// Surcharge des opérateurs de comparaison (à faire)
+
 
 // Surcharge des opérateurs d'incrémentation
 Fixed&	Fixed::operator++()

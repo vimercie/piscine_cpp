@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:03 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/27 13:42:23 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/27 13:47:21 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	main()
 	std::cout << "fixed(a)\t= " << a.getRawBits() << std::endl;
 	std::cout << "fixed(b)\t= " << b.getRawBits() << std::endl;
 	std::cout << "fixed(c)\t= " << c.getRawBits() << std::endl;
+	std::cout << std::endl;
+	std::cout << "a < b\t= " << (a < b) << std::endl;
+	std::cout << "a < b\t= " << (a < b) << std::endl;
+	std::cout << "a > b\t= " << (a > b) << std::endl;
+	std::cout << "a > b\t= " << (a > b) << std::endl;
 	std::cout << std::endl;
 	std::cout << "float(a) + float(b) = " << a.toFloat() + b.toFloat() << std::endl;
 	std::cout << "float(a) - float(b) = " << a.toFloat() - b.toFloat() << std::endl;
