@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/27 13:48:14 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/27 22:15:03 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,17 @@ Fixed&	Fixed::operator=(const Fixed& src)
 }
 
 // Surcharge des opérateurs de comparaison (à faire)
+bool	Fixed::operator<(const Fixed& src) const {return (this->getRawBits() < src.getRawBits());}
 
+bool	Fixed::operator>(const Fixed& src) const {return (this->getRawBits() > src.getRawBits());}
+
+bool	Fixed::operator<=(const Fixed& src) const {return (this->getRawBits() <= src.getRawBits());}
+
+bool	Fixed::operator>=(const Fixed& src) const {return (this->getRawBits() >= src.getRawBits());}
+
+bool	Fixed::operator==(const Fixed& src) const {return (this->getRawBits() == src.getRawBits());}
+
+bool	Fixed::operator!=(const Fixed& src) const {return (this->getRawBits() != src.getRawBits());}
 
 // Surcharge des opérateurs d'incrémentation
 Fixed&	Fixed::operator++()
