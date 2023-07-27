@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 22:10:39 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/22 14:44:26 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2023/07/22 01:46:43 by vimercie          #+#    #+#             */
+/*   Updated: 2023/07/24 15:34:17 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "../inc/ClapTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
-# include <string>
-# include <iostream>
-
-
-class   Harl
+int	main()
 {
-    public:
-        Harl();
+	ScavTrap	mauricio("Mauricio");
 
-        void    complain(std::string level);
-    private:
-		typedef void	(Harl::*ft_ptr)(void);
+	mauricio.guardGate();
+	mauricio.attack("bob");
+	mauricio.takeDamage(57);
+	mauricio.beRepaired(40);
 
-		std::string	str_tab[4];
-		ft_ptr		ptr_tab[4];
 
-        void    debug(void);
-        void    info(void);
-        void    warning(void);
-        void    error(void);
-};
-
-#endif
+	ScavTrap	t_mac(mauricio);
+	t_mac.attack("oorihgdjd");
+	return (0);
+}

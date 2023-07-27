@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 22:10:39 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/22 14:44:26 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2023/07/22 16:35:25 by vimercie          #+#    #+#             */
+/*   Updated: 2023/07/24 15:23:25 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <string>
+# include "ClapTrap.hpp"
+
 # include <iostream>
+# include <string>
 
-
-class   Harl
+class	ScavTrap : public ClapTrap
 {
-    public:
-        Harl();
+	public:
+		ScavTrap();
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap& src);
+		~ScavTrap();
 
-        void    complain(std::string level);
-    private:
-		typedef void	(Harl::*ft_ptr)(void);
+		ScavTrap&	operator=(const ScavTrap& src);
 
-		std::string	str_tab[4];
-		ft_ptr		ptr_tab[4];
+		virtual void	attack(const std::string& target);
 
-        void    debug(void);
-        void    info(void);
-        void    warning(void);
-        void    error(void);
+		void	guardGate();
 };
 
 #endif
