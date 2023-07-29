@@ -6,15 +6,15 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:44:50 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/22 16:58:30 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/29 14:28:31 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class	ClapTrap
 {
