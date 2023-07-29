@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:46:43 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/29 13:37:00 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/29 14:12:22 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main()
 	bob.beRepaired(1);
 
 	ClapTrap	jose(bob);
+	bob.takeDamage(7);
+	bob = jose;
 	bob.takeDamage(7);
 	jose.takeDamage(5);
 	jose.beRepaired(3);

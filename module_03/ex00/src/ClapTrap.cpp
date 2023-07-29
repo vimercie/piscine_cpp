@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:46:54 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/29 13:35:39 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/29 14:13:21 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ ClapTrap::~ClapTrap() {std::cout << "ClapTrap destructor called" << std::endl;}
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& src)
 {
+	std::cout << "ClapTrap " << this->name << " assignation operator called." << std::endl;
 	this->name = src.name;
 	this->hit_points = src.hit_points;
 	this->energy_points = src.energy_points;
