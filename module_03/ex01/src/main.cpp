@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 01:46:43 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/24 15:34:17 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/29 14:54:37 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,25 @@
 
 int	main()
 {
-	ScavTrap	mauricio("Mauricio");
+	ScavTrap	bro("Bro");
 
-	mauricio.guardGate();
-	mauricio.attack("bob");
-	mauricio.takeDamage(57);
-	mauricio.beRepaired(40);
+	std::cout << std::endl;
 
+	bro.attack("Steve");
+	bro.beRepaired(20);
+	bro.guardGate();
+	bro.takeDamage(100);
+	bro.takeDamage(100);
 
-	ScavTrap	t_mac(mauricio);
-	t_mac.attack("oorihgdjd");
+	std::cout << std::endl;
+
+	bro.attack("Steve");
+	bro.beRepaired(20);
+	bro.guardGate();
+	bro.takeDamage(100);
+	bro.takeDamage(100);
+
+	std::cout << std::endl;
+
 	return (0);
 }
