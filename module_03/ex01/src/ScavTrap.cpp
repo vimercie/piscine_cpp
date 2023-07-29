@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 16:39:02 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/29 14:53:52 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/29 14:59:45 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src)
-{std::cout << "(ScavTrap copy constructor called" << std::endl;}
+{std::cout << "(ScavTrap) copy constructor called" << std::endl;}
 
 ScavTrap::~ScavTrap() {std::cout << "(ScavTrap) destructor called" << std::endl;}
 
