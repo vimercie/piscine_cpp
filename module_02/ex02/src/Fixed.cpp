@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/27 22:15:03 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/30 12:05:00 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,36 @@ Fixed	Fixed::operator--(int)
 
 // Surcharges des opérateurs arithmétiques
 Fixed	Fixed::operator+(const Fixed& src) const
-{return (Fixed(this->toFloat() + src.toFloat()));}
+{
+	Fixed	res;
+
+	res.setRawBits(this->getRawBits() + src.getRawBits());
+	return (res);
+}
 
 Fixed	Fixed::operator-(const Fixed& src) const
-{return (Fixed(this->toFloat() - src.toFloat()));}
+{
+	Fixed	res;
+
+	res.setRawBits(this->getRawBits() - src.getRawBits());
+	return (res);
+}
 
 Fixed	Fixed::operator*(const Fixed& src) const
-{return (Fixed(this->toFloat() * src.toFloat()));}
+{
+	Fixed	res;
+
+	res.setRawBits((this->getRawBits() * src.getRawBits()) >> this->bitsInFraction);
+	return (res);
+}
 
 Fixed	Fixed::operator/(const Fixed& src) const
-{return (Fixed(this->toFloat() / src.toFloat()));}
+{
+	Fixed	res;
+
+	res.setRawBits((this->getRawBits() << this->bitsInFraction) / src.getRawBits());
+	return (res);
+}
 
 // Surcharge de l'opérateur d'affichage
 std::ostream&	operator<<(std::ostream& os, const Fixed& n)

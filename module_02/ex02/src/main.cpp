@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:03 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/27 22:15:31 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/07/30 11:48:27 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ int	main()
 	std::cout << "a == b\t= " << (a == b) << std::endl;
 	std::cout << "a != b\t= " << (a != b) << std::endl;
 	std::cout << std::endl;
-	std::cout << "float(a) + float(b) = " << a.toFloat() + b.toFloat() << std::endl;
-	std::cout << "float(a) - float(b) = " << a.toFloat() - b.toFloat() << std::endl;
-	std::cout << "float(a) * float(b) = " << a.toFloat() * b.toFloat() << std::endl;
-	std::cout << "float(a) / float(b) = " << a.toFloat() / b.toFloat() << std::endl;
+	std::cout << "a + b = " << (a + b) << std::endl;
+	std::cout << "a - b = " << (a - b) << std::endl;
+	std::cout << "a * b = " << (a * b) << std::endl;
+	std::cout << "a / b = " << (a / b) << std::endl;
 	std::cout << std::endl;
 	std::cout << "float(b)\t= " << b << std::endl;
 	std::cout << "fixed(b)\t= " << b.getRawBits() << std::endl;
