@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 15:24:33 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/30 15:39:52 by vimercie         ###   ########lyon.fr   */
+/*   Created: 2023/07/30 12:38:44 by vimercie          #+#    #+#             */
+/*   Updated: 2023/07/30 13:34:55 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "../inc/Dog.hpp"
 
-# include <string>
-# include <iostream>
-
-class	Animal
+Dog::Dog() : Animal()
 {
-	protected:
-		std::string	type;
-	public:
-		Animal();
-		Animal(const Animal& src);
-		virtual	~Animal();
+	std::cout << "Dog default constructor called" << std::endl;
+	this->type.assign("Dog");
+}
 
-		Animal&				operator=(const Animal& src);
+Dog::~Dog() {std::cout << "Dog destructor called" << std::endl;}
 
-		const std::string&	getType() const;
-		void				setType(const std::string src);
+Dog&	Dog::operator=(const Dog& src)
+{
+	this->type.assign(src.type);
+	return (*this);
+}
 
-		virtual void		makeSound() const;
-};
-
-#endif
+void	Dog::makeSound() const
+{
+	std::cout << "WOOF WOOF" << std::endl;
+}

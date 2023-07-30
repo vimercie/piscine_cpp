@@ -3,6 +3,11 @@ NAME=		ex00
 VPATH=		src/
 
 SRC=		main.cpp		\
+			Animal.cpp		\
+			Dog.cpp			\
+			Cat.cpp			\
+			WrongAnimal.cpp	\
+			WrongCat.cpp
 
 INCDIR=		inc/
 
