@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 16:35:25 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/24 15:23:25 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 16:17:06 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	ScavTrap : public ClapTrap
 
 		ScavTrap&	operator=(const ScavTrap& src);
 
-		virtual void	attack(const std::string& target);
+		void	attack(const std::string& target);
 
 		void	guardGate();
 };
