@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:06:01 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/30 12:05:00 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/01 14:42:24 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,14 +125,14 @@ float	Fixed::toFloat() const {return ((float)this->getRawBits() / (1 << this->bi
 
 Fixed&	Fixed::min(Fixed& a, Fixed& b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a.getRawBits() < b.getRawBits())
 		return (a);
 	else
 		return (b);
 }
 Fixed&	Fixed::max(Fixed& a, Fixed& b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a.getRawBits() > b.getRawBits())
 		return (a);
 	else
 		return (b);
@@ -140,7 +140,7 @@ Fixed&	Fixed::max(Fixed& a, Fixed& b)
 
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a.getRawBits() < b.getRawBits())
 		return (a);
 	else
 		return (b);
@@ -148,7 +148,7 @@ const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
 
 const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a.getRawBits() > b.getRawBits())
 		return (a);
 	else
 		return (b);
