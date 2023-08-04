@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 12:38:44 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/04 16:51:37 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 16:55:36 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() : Animal()
 	this->type.assign("Dog");
 }
 
-Cat::Cat(const Dog& src) : Animal(src)
+Dog::Dog(const Dog& src) : Animal(src)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 }
