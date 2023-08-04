@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:46:27 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/30 15:50:37 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 16:45:54 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ WrongCat::WrongCat() : WrongAnimal()
 {
 	std::cout << "WrongCat default constructor called" << std::endl;
 	this->type.assign("WrongCat");
+}
+
+WrongCat::WrongCat(const WrongCat& src) : WrongAnimal(src)
+{
+	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
 WrongCat::~WrongCat() {std::cout << "WrongCat destructor called" << std::endl;}
