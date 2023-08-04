@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 12:38:44 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/04 16:01:03 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 16:51:37 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Dog::Dog() : Animal()
 
 Cat::Cat(const Dog& src) : Animal(src)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog::~Dog() {std::cout << "Dog destructor called" << std::endl;}
 
 Dog&	Dog::operator=(const Dog& src)
 {
-	this->type.assign(src.type);
+	this->type = src.type;
 	return (*this);
 }
 

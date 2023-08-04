@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 12:39:33 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/04 16:04:50 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 16:51:50 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Cat::~Cat() {std::cout << "Cat destructor called" << std::endl;}
 
 Cat&	Cat::operator=(const Cat& src)
 {
-	this->type.assign(src.type);
+	this->type = src.type;
 	return (*this);
 }
 
