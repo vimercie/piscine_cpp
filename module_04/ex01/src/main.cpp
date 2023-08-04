@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 15:24:38 by vimercie          #+#    #+#             */
-/*   Updated: 2023/07/30 18:05:32 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/04 16:40:13 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,19 @@ int	main()
 		std::cout << std::endl;
 		delete animals[i];
 	}
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	Cat	basic;
+	Cat	tmp1(basic);
+	Cat	tmp2 = basic;
+
+	Dog	basic2;
+	Dog	tmp3(basic2);
+	Dog	tmp4 = basic2;
+
+	std::cout << std::endl;
+
 	return (0);
 }
