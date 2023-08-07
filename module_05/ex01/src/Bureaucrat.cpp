@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:41:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 17:51:38 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/07 17:57:42 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,10 @@ void	Bureaucrat::signForm(Form& f)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("Bureaucrat: grade too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("Bureaucrat: grade too low");
 }
