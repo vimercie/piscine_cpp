@@ -6,13 +6,13 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:41:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 05:28:50 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/07 16:31:00 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("no_name"), grade(150)
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
