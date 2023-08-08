@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 03:04:57 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 17:46:36 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/08 03:38:41 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main()
 		std::cout << std::endl;
 
 		peon.signForm(form);
+		boss.signForm(form);
 		boss.signForm(form);
 
 		std::cout << std::endl;
