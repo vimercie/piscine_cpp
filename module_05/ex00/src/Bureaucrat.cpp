@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:41:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 16:31:00 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/08 04:27:26 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& src)
 	this->name = src.getName();
 	this->grade = src.getGrade();
 
-	std::cout << "Bureaucrat assignation operator called" << std::endl;
+	std::cout << "Bureaucrat assignment operator called" << std::endl;
 	return (*this);
 }
 
