@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 03:04:57 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/09 03:08:52 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/09 03:14:44 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int main()
 	try
 	{
 		Intern	intern;
+		Intern	intern2 = intern;
 		std::cout << std::endl;
 		Form*	form1 = intern.makeForm("shrubbery creation", "garden");
-		Form*	form2 = intern.makeForm("robotomy request", "Bender");
+		Form*	form2 = intern2.makeForm("robotomy request", "Bender");
 		Form*	form3 = intern.makeForm("presidential pardon", "Zaphod");
-		// Form*	form4 = intern.makeForm("unknown", "unknown");
+		// Form*	form4 = intern2.makeForm("unknown", "unknown");
 
 		std::cout << std::endl;
 

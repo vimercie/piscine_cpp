@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 01:41:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/09 03:08:24 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/09 03:13:49 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ Form*	Intern::makeForm(const std::string& name, const std::string& target)
 			return formPtr;
 		}
 	}
-	std::cout << "Intern can't create " << name << " form" << std::endl;
 	throw Intern::FormNotFoundException();
 	return NULL;
 }
@@ -90,5 +89,5 @@ Form*	Intern::makePresidentialPardonForm(const std::string& target)
 
 const char*	Intern::FormNotFoundException::what() const throw()
 {
-	return "Form not found";
+	return "Intern can't create this form";
 }
