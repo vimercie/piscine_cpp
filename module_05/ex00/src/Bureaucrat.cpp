@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:41:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/08 04:27:26 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/09 15:45:09 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ std::ostream& 	operator<<(std::ostream& os, const Bureaucrat& src)
 	os << src.getName() << ", bureaucrat grade " << src.getGrade();
 	return (os);
 }
+
 std::string	Bureaucrat::getName() const
 {
 	return (this->name);
