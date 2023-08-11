@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/11 02:52:58 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/11 02:57:45 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ ScalarConverter::ScalarConverter()
 
 ScalarConverter::ScalarConverter(const ScalarConverter& src)
 {
-	*this = src;
+	if (this != &src)
+		*this = src;
 	std::cout << "Copy constructor called" << std::endl;
 }
 
