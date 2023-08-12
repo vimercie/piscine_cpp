@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 01:37:26 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/09 03:07:35 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/12 15:15:22 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class	Intern
 		Form*	makeShrubberyCreationForm(const std::string& target);
 		Form*	makeRobotomyRequestForm(const std::string& target);
 		Form*	makePresidentialPardonForm(const std::string& target);
-		
+
 		class	FormNotFoundException : public std::exception
 		{
 			public:

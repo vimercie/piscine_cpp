@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 01:41:53 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/09 03:13:49 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/12 15:03:45 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ Form*	Intern::makeForm(const std::string& name, const std::string& target)
 		}
 	}
 	throw Intern::FormNotFoundException();
-	return NULL;
 }
 
 Form*	Intern::makeShrubberyCreationForm(const std::string& target)

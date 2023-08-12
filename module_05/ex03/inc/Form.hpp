@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:23:22 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/09 02:22:27 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/12 14:57:23 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	Form
 		Form();
 		Form(const std::string& name, int gradeToSign, int gradeToExecute);
 		Form(const Form& src);
-		~Form();
+		virtual ~Form();
 
 		Form &operator=(const Form& src);
 
