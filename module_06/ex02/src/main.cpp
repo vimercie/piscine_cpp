@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:00:04 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 14:52:46 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 22:30:15 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 #include "../inc/B.hpp"
 #include "../inc/C.hpp"
 
+#include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 Base	*generate()
 {
-	int		random = rand() % 3;
+	srand((unsigned int )time(NULL));
+	int	random = rand() % 3;
 
 	if (random == 0)
 		return (new A);
@@ -31,12 +34,43 @@ Base	*generate()
 
 void	identify(Base* p)
 {
-	
+	A*	a = dynamic_cast<A*>(p);
+	B*	b = dynamic_cast<B*>(p);
+	C*	c = dynamic_cast<C*>(p);
+
+	if (a)
+		std::cout << "A" << std::endl;
+	else if (b)
+		std::cout << "B" << std::endl;
+	else if (c)
+		std::cout << "C" << std::endl;
+	else
+		std::cout << "Unknown" << std::endl;
 }
 
 void	identify(Base& p)
 {
-	
+	try
+	{
+		A&	a = dynamic_cast<A&>(p);
+		(void)a;
+		std::cout << "A" << std::endl;
+	}
+	catch (std::exception& e) {}
+	try
+	{
+		B&	b = dynamic_cast<B&>(p);
+		(void)b;
+		std::cout << "B" << std::endl;
+	}
+	catch (std::exception& e) {}
+	try
+	{
+		C&	c = dynamic_cast<C&>(p);
+		(void)c;
+		std::cout << "C" << std::endl;
+	}
+	catch (std::exception& e) {}
 }
 
 int	main()

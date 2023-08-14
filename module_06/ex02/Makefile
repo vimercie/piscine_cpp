@@ -2,11 +2,7 @@ NAME=		ex02
 
 VPATH=		src/
 
-SRC=		main.cpp			\
-			Base.cpp			\
-			A.cpp				\
-			B.cpp				\
-			C.cpp
+SRC=		main.cpp
 
 INCDIR=		inc/
 
