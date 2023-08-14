@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 12:20:16 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 14:48:15 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ScalarConverter::convert(const std::string& str)
 	else if (getType(str) == 'f')
 		convertFloat(static_cast<float>(std::atof(str.c_str())));
 	else if (getType(str) == 'd')
-		convertDouble(static_cast<double>(std::atof(str.c_str())));
+		convertDouble(static_cast<double>(std::strtod(str.c_str(), NULL)));
 	else if (!convertSpecial(str))
 		std::cout << "impossible" << std::endl;
 }
