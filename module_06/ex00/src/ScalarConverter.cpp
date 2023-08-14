@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 14:48:15 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 15:03:37 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ScalarConverter::convert(const std::string& str)
 	if (getType(str) == 'c')
 		convertChar(static_cast<char>(str[0]));
 	else if (getType(str) == 'i')
-		convertInt(static_cast<int>(std::atoi(str.c_str())));
+		convertInt(std::atoi(str.c_str()));
 	else if (getType(str) == 'f')
 		convertFloat(static_cast<float>(std::atof(str.c_str())));
 	else if (getType(str) == 'd')
