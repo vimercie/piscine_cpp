@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/11 02:57:45 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 12:20:16 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ScalarConverter::convertChar(const char& c)
 void	ScalarConverter::convertInt(const int& i)
 {
 	std::cout << "char: ";
-	if (i < 0 || i > 127)
+	if (i < 0 || i > 127)		// f != f is to check if f is NaN
 		std::cout << "impossible" << std::endl;
 	else if (i < 32 || i == 127)
 		std::cout << "Non displayable" << std::endl;
@@ -77,7 +77,7 @@ void	ScalarConverter::convertInt(const int& i)
 void	ScalarConverter::convertFloat(const float& f)
 {
 	std::cout << "char: ";
-	if (f < 0 || f > 127 || f != f)		// f != f is to check if f is NaN
+	if (f < 0 || f > 127 || f != f)
 		std::cout << "impossible" << std::endl;
 	else if (f < 32 || f == 127)
 		std::cout << "Non displayable" << std::endl;
