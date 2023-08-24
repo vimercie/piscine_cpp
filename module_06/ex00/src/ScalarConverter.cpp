@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 15:03:37 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/24 19:31:08 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,56 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& src)
 
 void	ScalarConverter::convert(const std::string& str)
 {
-	if (getType(str) == 'c')
+	std::string	type = getType(str);
+
+	if (type == "char")
 		convertChar(static_cast<char>(str[0]));
-	else if (getType(str) == 'i')
+	else if (type == "int")
 		convertInt(std::atoi(str.c_str()));
-	else if (getType(str) == 'f')
+	else if (type == "float")
 		convertFloat(static_cast<float>(std::atof(str.c_str())));
-	else if (getType(str) == 'd')
+	else if (type == "double")
 		convertDouble(static_cast<double>(std::strtod(str.c_str(), NULL)));
 	else if (!convertSpecial(str))
 		std::cout << "impossible" << std::endl;
+}
+
+std::string	ScalarConverter::getType(const std::string& str)
+{
+	bool	isInt = isInLimits(str, "int");
+	bool	isFloat = false;
+	bool	isDouble = false;
+
+	if (str.length() == 1 && !isdigit(str[0]))
+		return "char";
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != '-')
+			return "error";
+		if (str[i] == '-' && i != 0)
+			return "error";
+		if (str[i] == '.')
+		{
+			if (isDouble)
+				return "error";
+			isDouble = true;
+		}
+		if (str[i] == 'f')
+		{
+			if (i != str.length() - 1)
+				return "error";
+			isFloat = true;
+		}
+	}
+
+	if (!isFloat && !isDouble && isInt)
+		return "int";
+	else if (isFloat || (!isInt && isInLimits(str, "float")))
+		return "float";
+	else if (isDouble)
+		return "double";
+	else
+		return "error";
 }
 
 void	ScalarConverter::convertChar(const char& c)
@@ -85,12 +125,13 @@ void	ScalarConverter::convertFloat(const float& f)
 		std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
 
 	std::cout << "int: ";
-	if (f < INT_MIN || f > INT_MAX || f != f)
+	if (f <= std::numeric_limits<int>::min()
+		|| f >= std::numeric_limits<int>::max())
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(f) << std::endl;
 
-	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "float: " << f << ".0f" << std::endl;
 
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
@@ -106,7 +147,7 @@ void	ScalarConverter::convertDouble(const double& d)
 		std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
 
 	std::cout << "int: ";
-	if (d < INT_MIN || d > INT_MAX || d != d)
+	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max() || d != d)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(d) << std::endl;
@@ -135,40 +176,36 @@ bool	ScalarConverter::convertSpecial(const std::string& str)
 	return true;
 }
 
-char	ScalarConverter::getType(const std::string& str)
+bool	ScalarConverter::isInLimits(const std::string& number, const std::string& type)
 {
-	bool	isFloat = false;
-	bool	isDouble = false;
+	std::stringstream	min;
+	std::stringstream	max;
 
-	if (str.length() == 1 && !isdigit(str[0]))
-		return 'c';
-
-	for (size_t i = 0; i < str.length(); i++)
+	if (type == "int")
 	{
-		if (str[i] == '.')
-		{
-			if (isDouble)
-				return 0;
-			isDouble = true;
-		}
-
-		if (str[i] == 'f')
-		{
-			if (isFloat || str[i + 1])
-				return 0;
-			isFloat = true;
-		}
-
-		if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f')
-			return 0;
+		min << std::numeric_limits<int>::min();
+		max << std::numeric_limits<int>::max();
+	}
+	else if (type == "float")
+	{
+		min << std::numeric_limits<float>::min();
+		max << std::numeric_limits<float>::max();
+	}
+	else if (type == "double")
+	{
+		min << std::numeric_limits<double>::min();
+		max << std::numeric_limits<double>::max();
 	}
 
-	if (isFloat && isDouble)
-		return 'f';
-	else if (!isFloat && isDouble)
-		return 'd';
-	else if (!isFloat && !isDouble)
-		return 'i';
+	if (number[0] == '-')
+	{
+		if (number.length() >= min.str().length() && number > min.str())
+			return false;
+	}
 	else
-		return 0;
+	{
+		if (number.length() >= max.str().length() && number > max.str())
+			return false;
+	}
+	return true;
 }
