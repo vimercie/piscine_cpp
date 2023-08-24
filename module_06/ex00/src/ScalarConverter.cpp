@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/24 19:31:08 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/24 23:39:50 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	ScalarConverter::convert(const std::string& str)
 
 std::string	ScalarConverter::getType(const std::string& str)
 {
-	bool	isInt = isInLimits(str, "int");
 	bool	isFloat = false;
 	bool	isDouble = false;
 
@@ -79,11 +78,11 @@ std::string	ScalarConverter::getType(const std::string& str)
 		}
 	}
 
-	if (!isFloat && !isDouble && isInt)
+	if (!isFloat && !isDouble && isInLimits(str, "int"))
 		return "int";
-	else if (isFloat || (!isInt && isInLimits(str, "float")))
+	else if (isFloat || (!isInLimits(str, "int") && isInLimits(str, "float")))
 		return "float";
-	else if (isDouble)
+	else if ((isDouble || (!isInLimits(str, "float") && isInLimits(str, "double"))) && isInLimits(str, "double"))
 		return "double";
 	else
 		return "error";
