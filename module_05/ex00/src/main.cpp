@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 03:04:57 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/26 14:46:59 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/26 14:54:03 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,7 @@ int main()
 		std::cout << boss << std::endl;
 		std::cout << peon << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	catch (const Bureaucrat::GradeTooLowException& e)
+	catch (std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
