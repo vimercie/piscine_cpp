@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:38:15 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 05:27:02 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/26 14:45:58 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class	Bureaucrat
 {
 	private:
-		std::string	name;
-		int			grade;
+		const std::string	name;
+		int					grade;
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string& name, int grade);
