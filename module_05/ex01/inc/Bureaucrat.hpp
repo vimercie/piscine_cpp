@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 02:38:15 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/07 17:18:19 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/26 14:57:51 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class	Form;
 class	Bureaucrat
 {
 	private:
-		std::string	name;
-		int			grade;
+		const std::string	name;
+		int					grade;
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string& name, int grade);
@@ -33,7 +33,6 @@ class	Bureaucrat
 
 		std::string	getName() const;
 		int			getGrade() const;
-		void		setName(const std::string& name);
 		void		setGrade(int grade);
 		void		incrementGrade();
 		void		decrementGrade();
