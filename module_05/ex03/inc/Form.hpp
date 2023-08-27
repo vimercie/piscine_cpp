@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:23:22 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/12 14:57:23 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/27 20:07:09 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,17 @@ class	Form
 			public:
 				virtual const char* what() const throw();
 		};
-		class FormAlreadySignedException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
 		class FormNotSignedException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
+		class FormAlreadySignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		
 };
 
 std::ostream&	operator<<(std::ostream& os, const Form& f);
