@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 05:07:49 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/08 05:16:32 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/27 19:58:56 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& s
 void	RobotomyRequestForm::runForm() const
 {
 	std::cout << "* drilling noises *" << std::endl;
+	srand((unsigned int )time(NULL));
 	if (rand() % 2)
 		std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
 	else
