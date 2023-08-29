@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:00:04 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 22:30:15 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/29 17:16:46 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	identify(Base& p)
 		A&	a = dynamic_cast<A&>(p);
 		(void)a;
 		std::cout << "A" << std::endl;
+		return ;
 	}
 	catch (std::exception& e) {}
 	try
@@ -62,6 +63,7 @@ void	identify(Base& p)
 		B&	b = dynamic_cast<B&>(p);
 		(void)b;
 		std::cout << "B" << std::endl;
+		return ;
 	}
 	catch (std::exception& e) {}
 	try
@@ -69,17 +71,43 @@ void	identify(Base& p)
 		C&	c = dynamic_cast<C&>(p);
 		(void)c;
 		std::cout << "C" << std::endl;
+		return ;
 	}
 	catch (std::exception& e) {}
 }
 
 int	main()
 {
-	Base	*base = generate();
+	Base	*A = new class A;
+	Base	*B = new class B;
+	Base	*C = new class C;
+	Base	*random = generate();
+	Base	*null = NULL;
 
-	identify(base);
-	identify(*base);
+	identify(*A);
+	identify(*B);
+	identify(*C);
 
-	delete base;
+	std::cout << std::endl;
+
+	identify(A);
+	identify(B);
+	identify(C);
+
+	std::cout << std::endl;
+
+	identify(random);
+	identify(*random);
+
+	std::cout << std::endl;
+
+	identify(null);
+	identify(*null);
+
+	delete A;
+	delete B;
+	delete C;
+	delete random;
+
 	return (0);
 }
