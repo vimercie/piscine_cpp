@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 12:43:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/14 13:40:29 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/30 14:53:20 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,16 @@ struct	Data;
 
 class	Serializer
 {
-	public:
+	private:
 		Serializer();
 		Serializer(const Serializer& src);
 		~Serializer();
 
 		Serializer&	operator=(const Serializer& src);
-
+	public:
 		static uintptr_t	serialize(Data *ptr);
 		static Data			*deserialize(uintptr_t raw);
+
 };
 
 #endif
