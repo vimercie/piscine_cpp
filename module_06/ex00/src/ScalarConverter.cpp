@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:31 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/24 23:39:50 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/01 05:01:54 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	ScalarConverter::convert(const std::string& str)
 	std::string	type = getType(str);
 
 	if (type == "char")
-		convertChar(static_cast<char>(str[0]));
+		displayConvert(static_cast<char>(str[0]));
 	else if (type == "int")
-		convertInt(std::atoi(str.c_str()));
+		displayConvert(std::atoi(str.c_str()));
 	else if (type == "float")
-		convertFloat(static_cast<float>(std::atof(str.c_str())));
+		displayConvert(static_cast<float>(std::atof(str.c_str())));
 	else if (type == "double")
-		convertDouble(static_cast<double>(std::strtod(str.c_str(), NULL)));
+		displayConvert(std::strtod(str.c_str(), NULL));
 	else if (!convertSpecial(str))
 		std::cout << "impossible" << std::endl;
 }
@@ -58,6 +58,7 @@ std::string	ScalarConverter::getType(const std::string& str)
 
 	if (str.length() == 1 && !isdigit(str[0]))
 		return "char";
+
 	for (size_t i = 0; i < str.length(); i++)
 	{
 		if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f' && str[i] != '-')
@@ -80,96 +81,119 @@ std::string	ScalarConverter::getType(const std::string& str)
 
 	if (!isFloat && !isDouble && isInLimits(str, "int"))
 		return "int";
-	else if (isFloat || (!isInLimits(str, "int") && isInLimits(str, "float")))
+	else if (isFloat)
 		return "float";
-	else if ((isDouble || (!isInLimits(str, "float") && isInLimits(str, "double"))) && isInLimits(str, "double"))
+	else if ((isDouble || (!isInLimits(str, "int") && isInLimits(str, "double"))))
 		return "double";
 	else
 		return "error";
 }
 
-void	ScalarConverter::convertChar(const char& c)
+template<typename T>
+void	ScalarConverter::displayConvert(T var)
 {
-	std::cout << "char: '" << c << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
-}
+	std::string	type = typeid(var).name();
 
-void	ScalarConverter::convertInt(const int& i)
-{
+	if (errno == ERANGE)
+	{
+		std::cout << "Overflow or underflow" << std::endl;
+		return ;
+	}
+
 	std::cout << "char: ";
-	if (i < 0 || i > 127)		// f != f is to check if f is NaN
-		std::cout << "impossible" << std::endl;
-	else if (i < 32 || i == 127)
-		std::cout << "Non displayable" << std::endl;
+	if (type == "c")
+		std::cout << "'" << var << "'" << std::endl;
 	else
-		std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
-
-	std::cout << "int: " << i << std::endl;
-
-	std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-
-	std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
-}
-
-void	ScalarConverter::convertFloat(const float& f)
-{
-	std::cout << "char: ";
-	if (f < 0 || f > 127 || f != f)
-		std::cout << "impossible" << std::endl;
-	else if (f < 32 || f == 127)
-		std::cout << "Non displayable" << std::endl;
-	else
-		std::cout << "'" << static_cast<char>(f) << "'" << std::endl;
+		std::cout << toChar(var) << std::endl;
 
 	std::cout << "int: ";
-	if (f <= std::numeric_limits<int>::min()
-		|| f >= std::numeric_limits<int>::max())
-		std::cout << "impossible" << std::endl;
+	if (type == "i")
+	{
+		std::cout << var << std::endl;
+	}
 	else
-		std::cout << static_cast<int>(f) << std::endl;
+		std::cout << toInt(var) << std::endl;
 
-	std::cout << "float: " << f << ".0f" << std::endl;
+	std::cout << "float: ";
+	if (type == "f")
+		std::cout << std::fixed << std::setprecision(2) << var << "f" << std::endl;
+	else
+		std::cout << toFloat(var) << std::endl;
 
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	std::cout << "double: ";
+	if (type == "d")
+		std::cout << std::fixed << std::setprecision(2) << var << std::endl;
+	else
+		std::cout << toDouble(var) << std::endl;
 }
 
-void	ScalarConverter::convertDouble(const double& d)
+template<typename T>
+std::string	ScalarConverter::toChar(T var)
 {
-	std::cout << "char: ";
-	if (d < 0 || d > 127 || d != d)
-		std::cout << "impossible" << std::endl;
-	else if (d < 32 || d == 127)
-		std::cout << "Non displayable" << std::endl;
+	std::stringstream	ss;
+	int	i = static_cast<int>(var);
+
+	if (i < 33 || i > 126)
+		ss << "Non displayable";
 	else
-		std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
+		ss << "'" << static_cast<char>(var) << "'";
+	return ss.str();
+}
 
-	std::cout << "int: ";
-	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max() || d != d)
-		std::cout << "impossible" << std::endl;
+template<typename T>
+std::string	ScalarConverter::toInt(T var)
+{
+	std::stringstream	ss;
+
+	if (var <= std::numeric_limits<int>::min()
+		|| var >= std::numeric_limits<int>::max()
+		|| var != var)
+		ss << "impossible";
 	else
-		std::cout << static_cast<int>(d) << std::endl;
+		ss << static_cast<int>(var);
+	return ss.str();
+}
 
-	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;;
+template<typename T>
+std::string	ScalarConverter::toFloat(T var)
+{
+	std::stringstream	ss;
 
-	std::cout << "double: " << d << std::endl;
+	if (var < -std::numeric_limits<float>::max() || var > std::numeric_limits<float>::max())
+		ss << "impossible";
+	else
+		ss << std::fixed << std::setprecision(2) << static_cast<float>(var) << "f";					//	>> codage 32-bits -> pertes de précisions
+		// ss << std::fixed << std::setprecision(2) << static_cast<double>(var) << "f";					>> codage 64-bits -> pour empêcher la perte de précision, mais n'est pas demandé
+	return ss.str();
+}
+
+template<typename T>
+std::string	ScalarConverter::toDouble(T var)
+{
+	std::stringstream	ss;
+
+	if (var <= -std::numeric_limits<double>::max()
+		|| var >= std::numeric_limits<double>::max())
+		ss << "impossible";
+	else
+		ss << std::fixed << std::setprecision(2) << static_cast<double>(var);
+	return ss.str();
 }
 
 bool	ScalarConverter::convertSpecial(const std::string& str)
 {
 	if (str == "+inf")
-		convertDouble(1.0 / 0.0); // Double Positive Infinity
+		displayConvert(static_cast<double>(1.0 / 0.0)); // Double Positive Infinity
 	else if (str == "-inf")
-		convertDouble(-1.0 / 0.0); // Double Negative Infinity
+		displayConvert(static_cast<double>(-1.0 / 0.0)); // Double Negative Infinity
 	else if (str == "nan")
-		convertDouble(0.0 / 0.0); // Double NaN
+		displayConvert(static_cast<double>(0.0 / 0.0)); // Double NaN
 	else if (str == "+inff")
-		convertFloat(1.0f / 0.0f); // Float Positive Infinity
+		displayConvert(static_cast<float>(1.0f / 0.0f)); // Float Positive Infinity
 	else if (str == "-inff")
-		convertFloat(-1.0f / 0.0f); // Float Negative Infinity
+		displayConvert(static_cast<float>(-1.0f / 0.0f)); // Float Negative Infinity
 	else if (str == "nanf")
-		convertFloat(0.0f / 0.0f); // Float NaN
+		displayConvert(static_cast<float>(0.0f / 0.0f)); // Float NaN
 	else
 		return false;
 	return true;
@@ -192,18 +216,19 @@ bool	ScalarConverter::isInLimits(const std::string& number, const std::string& t
 	}
 	else if (type == "double")
 	{
-		min << std::numeric_limits<double>::min();
+		min << -std::numeric_limits<double>::max();
 		max << std::numeric_limits<double>::max();
 	}
-
 	if (number[0] == '-')
 	{
-		if (number.length() >= min.str().length() && number > min.str())
+		if ((number.length() == min.str().length() && number.compare(min.str()) > 0)
+			|| number.length() > min.str().length())
 			return false;
 	}
 	else
 	{
-		if (number.length() >= max.str().length() && number > max.str())
+		if ((number.length() == max.str().length() && number.compare(max.str()) > 0)
+			|| number.length() > max.str().length())
 			return false;
 	}
 	return true;

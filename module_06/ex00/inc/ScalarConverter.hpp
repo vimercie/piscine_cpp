@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:34 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/24 18:18:17 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/08/30 18:09:44 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 # include <sstream>
 # include <cstdlib>
 # include <cmath>
+# include <cerrno>
 # include <limits>
+# include <typeinfo>
 
 class	ScalarConverter
 {
@@ -32,15 +35,22 @@ class	ScalarConverter
 
 		ScalarConverter&	operator=(const ScalarConverter& src);
 
+		template<typename T>
+		static void			displayConvert(T var);
+		template<typename T>
+		static std::string	toChar(T var);
+		template<typename T>
+		static std::string	toInt(T var);
+		template<typename T>
+		static std::string	toFloat(T var);
+		template<typename T>
+		static std::string	toDouble(T var);
+
 		static std::string	getType(const std::string& str);
-		static void			convertChar(const char& c);
-		static void			convertInt(const int& i);
-		static void			convertFloat(const float& f);
-		static void			convertDouble(const double& d);
 		static bool			convertSpecial(const std::string& str);
 		static bool			isInLimits(const std::string& number, const std::string& type);
 	public:
-		static void	convert(const std::string& str);
+		static void			convert(const std::string& str);
 };
 
 #endif
