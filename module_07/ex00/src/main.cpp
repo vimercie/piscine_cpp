@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 02:58:24 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/23 18:36:25 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/02 16:04:13 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 int main( void )
 {
-	int a = 2;
-	int b = 3;
+	int			a = 2;
+	int 		b = 3;
+	// std::string c = "chaine1";
 	
 	try
 	{
