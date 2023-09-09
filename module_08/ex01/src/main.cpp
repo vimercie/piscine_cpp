@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:37:41 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/09 15:51:21 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/09 15:57:13 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,23 @@ int main()
 
 		sp.printSet();
 
-		std::cout << std::endl;
+		// std::cout << std::endl;
 
-		Span sp2 = Span(5);
-		int myArray[] = {1, 2, 3, 4, 5};
-    	int* begin = myArray;
-    	int* end = myArray + sizeof(myArray) / sizeof(myArray[0]);
+		// int	size = 424242;
+		// Span sp2 = Span(size);
+		// int myArray[size];
 
-		sp2.addNumbers(begin, end);
+		// for (int i = 0; i < size; i++)
+		// 	myArray[i] = i;
 
-		std::cout << std::endl;
+    	// int* begin = myArray;
+    	// int* end = myArray + sizeof(myArray) / sizeof(myArray[0]);
 
-		sp2.printSet();
+		// sp2.addNumbers(begin, end);
+
+		// std::cout << std::endl;
+
+		// sp2.printSet();
 	}
 	catch (std::exception& e)
 	{
