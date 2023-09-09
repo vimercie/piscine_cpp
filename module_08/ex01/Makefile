@@ -2,7 +2,7 @@ NAME=		ex01
 
 VPATH=		src/
 
-SRC=		main.cpp	/
+SRC=		main.cpp					\
 			Span.cpp
 
 INCDIR=		inc/
