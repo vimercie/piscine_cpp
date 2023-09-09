@@ -6,15 +6,16 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:20:34 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/30 18:09:44 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/09 03:43:25 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
-# define CHAR_MIN -128
-# define CHAR_MAX 127
+# define CHAR_MIN	-128
+# define CHAR_MAX	127
+# define LIMIT		999999999999999
 
 # include <string>
 # include <iostream>
