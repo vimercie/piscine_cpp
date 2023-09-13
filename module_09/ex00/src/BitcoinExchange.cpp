@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:03:16 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/14 00:10:13 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 00:23:04 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ BCmap	BitcoinExchange::parseBCmap(const std::string& filename, bool type)
 	double		value;
 
 	std::getline(file, line);
+	if (type == PRICES && line != "date | value")
+		throw std::runtime_error("invalid price file format");
 	while (std::getline(file, line))
 	{
 		if (line.empty())

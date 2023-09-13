@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:03:36 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/14 00:10:19 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 00:22:21 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define RATES 1
 
 # include <iostream>
+# include <iomanip>
 # include <fstream>
 # include <string>
 # include <cstdlib>
