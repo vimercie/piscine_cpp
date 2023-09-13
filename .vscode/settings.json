@@ -55,7 +55,7 @@
 		"ratio": "cpp",
 		"stop_token": "cpp",
 		"thread": "cpp",
-		"cinttypes": "cpp"
-	},
-	"C_Cpp.default.cppStandard": "c++98"
+		"cinttypes": "cpp",
+		"set": "cpp"
+	}
 }
