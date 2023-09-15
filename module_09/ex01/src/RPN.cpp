@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:46:40 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/14 18:41:46 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/15 18:19:16 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ RPN::RPN(const std::string& str)
 	operations[3] = &RPN::divide;
 
 	parseRPN(str);
-
-	std::cout << stack.top() << std::endl;
 }
 
 RPN::RPN(const RPN& src)
@@ -109,6 +107,11 @@ double RPN::divide(double num1, double num2)
 	if (num2 == 0)
 		throw std::invalid_argument("Division by zero");
 	return num1 / num2;
+}
+
+double	RPN::top() const
+{
+	return stack.top();
 }
 
 bool	RPN::isOperator(char c) const

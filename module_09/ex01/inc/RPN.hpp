@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:46:44 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/14 18:39:46 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/15 18:18:33 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ class	RPN
 		~RPN();
 
 		RPN&	operator=(const RPN& src);
+
+		double	top() const;
 };
 
 
