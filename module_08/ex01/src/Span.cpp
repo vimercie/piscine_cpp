@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:59:04 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/09 15:55:15 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:27:12 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ void	Span::addNumber(int n)
 
 void	Span::addNumbers(int* begin, int* end)
 {
-	if (tab.size() + std::distance(begin, end) > size)
-		throw std::invalid_argument("Span is full");
+	if (std::distance(begin, end) > size)
+		throw std::invalid_argument("Span size is too small");
+
 	for (int* it = begin; it != end; it++)
+	{
 		if (tab.find(*it) != tab.end())
 			throw std::invalid_argument("Number already exists in Span");
+	}
+
 	tab.insert(begin, end);
 }
 

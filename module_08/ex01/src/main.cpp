@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 17:37:41 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/09 15:57:13 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:29:11 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int main()
 		// 	myArray[i] = i;
 
     	// int* begin = myArray;
-    	// int* end = myArray + sizeof(myArray) / sizeof(myArray[0]);
+    	// int* end = myArray + (sizeof(myArray) / sizeof(myArray[0]));
+    	// // int* end = myArray + (sizeof(myArray) / sizeof(myArray[0])) + 1;
 
 		// sp2.addNumbers(begin, end);
 
