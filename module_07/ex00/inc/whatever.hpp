@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 02:58:10 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/23 18:35:08 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 00:54:39 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ T min(T &a, T &b)
 		throw std::invalid_argument("Type mismatch");
 	if (a < b)
 		return (a);
-	return (const T& b);
+	return (b);
 }
 
 template <typename T>
@@ -42,7 +42,7 @@ T max(T &a, T &b)
 		throw std::invalid_argument("Type mismatch");
 	if (a > b)
 		return (a);
-	return (const T& b);
+	return (b);
 }
 
 #endif
