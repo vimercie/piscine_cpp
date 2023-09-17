@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 03:44:50 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/16 04:26:31 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:10:00 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main()
 {
 	Array<int> a(5);
 	Array<int> b(a);
-	Array<int> c;
 
 	for (size_t i = 0; i < a.size(); i++)
 	{
@@ -28,14 +27,14 @@ int	main()
 		std::cout << std::endl;
 	}
 
-	c = a;
+	const Array<int> c = a;
 
 	try
 	{
 		std::cout << "a[3] = " << a[3] << std::endl;
+		std::cout << "c[4] = " << c[4] << std::endl;
 		std::cout << "a[-1] = " << a[-1] << std::endl;
 		std::cout << "b[5] = " << b[5] << std::endl;
-		std::cout << "c[4] = " << c[4] << std::endl;
 	}
 	catch (std::exception &e)
 	{

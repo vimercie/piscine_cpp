@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 03:20:08 by vimercie          #+#    #+#             */
-/*   Updated: 2023/08/16 04:19:09 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:08:28 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Array<T>::Array() : array(NULL), array_size(0)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : array(new T[n]), array_size(n)
+Array<T>::Array(size_t size) : array(new T[size]), array_size(size)
 {
 	std::cout << "Parametric constructor called" << std::endl;
 }
@@ -29,8 +29,10 @@ Array<T>::Array(const Array& src)
 {
 	array_size = src.size();
 	array = new T[src.size()];
+
 	for (size_t i = 0; i < size(); i++)
 		array[i] = src.array[i];
+
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -66,6 +68,14 @@ T &Array<T>::operator[](size_t i)
 	if (i >= size())
 		throw std::out_of_range("Out of range");
 	return array[i];
+}
+
+template <typename T>
+const T &Array<T>::operator[](size_t i) const
+{
+    if (i >= size())
+        throw std::out_of_range("Out of range");
+    return array[i];
 }
 
 template <typename T>
