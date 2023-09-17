@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:53:15 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/12 00:49:42 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:33:37 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ MutantStack<T>&	MutantStack<T>::operator=(const MutantStack& src)
 }
 
 template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin()
+typename MutantStack<T>::stackIterator MutantStack<T>::begin()
 {
 	return std::stack<T>::c.begin();
 }
 
 template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::end()
+typename MutantStack<T>::stackIterator MutantStack<T>::end()
 {
 	return std::stack<T>::c.end();
 }

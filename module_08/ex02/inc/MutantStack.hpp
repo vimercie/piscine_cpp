@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:18:47 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/12 00:49:33 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 01:31:06 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class MutantStack : public std::stack<T>
 
 		MutantStack&	operator=(const MutantStack& src);
 
-		typedef typename std::deque<T>::iterator iterator;
-		iterator begin();
-		iterator end();
+		typedef typename std::deque<T>::iterator stackIterator;
+		stackIterator begin();
+		stackIterator end();
 };
 
 # include "MutantStack.tpp"
