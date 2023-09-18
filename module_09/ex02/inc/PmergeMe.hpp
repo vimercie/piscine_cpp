@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:54:54 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/17 18:02:26 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 16:08:43 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class	PmergeMe
 		PmergeMe& operator=(const PmergeMe& src);
 
 		virtual void	parsing(char **argv) = 0;
-		virtual void	mergeInsertionSort();
-		virtual void	insertionSort();
 		virtual bool	isInLimits(const std::string& str) const;
 		virtual bool 	isSorted();
 };

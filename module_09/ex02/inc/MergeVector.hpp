@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 17:19:11 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/17 18:03:18 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 16:09:57 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class	MergeVector : public PmergeMe
 		MergeVector();
 
 		virtual void	parsing(char **argv);
-		virtual void	insertionSort(vectorIterator start, vectorIterator end);
 
+		void			insertionSort(vectorIterator start, vectorIterator end);
 		vectorIterator	findMedian(vectorIterator start, vectorIterator end);
 
 		std::vector<int>	vector;
@@ -39,13 +39,13 @@ class	MergeVector : public PmergeMe
 
 		MergeVector& operator=(const MergeVector& src);
 
-		virtual void	mergeInsertionSort(vectorIterator begin, vectorIterator end);
 		virtual bool	isSorted();
 
-		vectorIterator	begin();
-		vectorIterator	end();
+		void			mergeInsertionSort(vectorIterator begin, vectorIterator end);
 		void			printVector();
 		void			printPartialVector(size_t n);
+		vectorIterator	begin();
+		vectorIterator	end();
 };
 
 #endif

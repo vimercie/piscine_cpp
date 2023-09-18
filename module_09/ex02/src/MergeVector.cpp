@@ -6,7 +6,7 @@
 /*   By: vimercie <vimercie@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 18:19:28 by vimercie          #+#    #+#             */
-/*   Updated: 2023/09/17 18:03:09 by vimercie         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 16:04:41 by vimercie         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	MergeVector::parsing(char **argv)
 		std::string tmp = "";
 
 		while (argv[i][j])
-		{				
+		{
 			if (!isdigit(argv[i][j]))
 				throw std::invalid_argument("Invalid argument");
 			tmp.push_back(argv[i][j]);
